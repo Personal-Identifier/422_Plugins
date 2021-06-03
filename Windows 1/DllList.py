@@ -10,23 +10,12 @@ class DllList(interfaces.plugins.PluginInterface):
                                                     description = "Windows kernel symbols"),
                 requirements.PluginRequirement(name = 'pslist',
                                                plugin = pslist.PsList,
-                                               version = (1, 0, 0)),
+                                               version = (2, 0, 0)),
                 requirements.ListRequirement(name = 'pid',
                                              element_type = int,
                                              description = "Process IDs to include (all other processes are excluded)",
                                              optional = True)]
-                requirements.TranslationLayerRequirement(name = 'primary',
-                                             description = 'Memory layer for the kernel',
-                                             architectures = ["Intel32", "Intel64"]),
-                requirements.SymbolTableRequirement(name = "nt_symbols",
-                                        description = "Windows kernel symbols"),
-                requirements.PluginRequirement(name = 'pslist',
-                                   plugin = pslist.PsList,
-                                   version = (2, 0, 0)), 
-                requirements.ListRequirement(name = 'pid',
-                                 description = 'Filter on specific process IDs',
-                                 element_type = int,
-                                 optional = True)
+
     def run(self):
 
         filter_func = pslist.PsList.create_pid_filter(self.config.get('pid', None))
