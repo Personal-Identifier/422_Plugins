@@ -15,7 +15,7 @@ class DllList(interfaces.plugins.PluginInterface):
                                              element_type = int,
                                              description = "Process IDs to include (all other processes are excluded)",
                                              optional = True)]
-                                             requirements.TranslationLayerRequirement(name = 'primary',
+                requirements.TranslationLayerRequirement(name = 'primary',
                                              description = 'Memory layer for the kernel',
                                              architectures = ["Intel32", "Intel64"]),
                 requirements.SymbolTableRequirement(name = "nt_symbols",
